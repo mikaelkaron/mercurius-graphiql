@@ -6,6 +6,9 @@ async function run (page, query) {
   const editor = page.locator('.graphiql-query-editor .CodeMirror')
   await expect(editor).toBeVisible()
   await editor.evaluate((element, query) => element.CodeMirror.setValue(query), query)
+  // GraphiQL parses the query after a debounce, in the step that stores it;
+  // until then it can't tell a subscription and sends it over HTTP
+  await page.waitForFunction(query => globalThis.localStorage.getItem('graphiql:query') === query, query)
   await page.locator('.graphiql-execute-button').click()
 }
 
