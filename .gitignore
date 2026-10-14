@@ -1,0 +1,14 @@
+node_modules
+coverage
+.nyc_output
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# copied from the graphiql, react and react-dom packages by scripts/prepare.js
+static/vendor
+
+# playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/

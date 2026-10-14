@@ -1,0 +1,67 @@
+{
+  "name": "mercurius-graphiql",
+  "version": "1.0.0",
+  "description": "GraphiQL for Mercurius, served from local files",
+  "main": "index.js",
+  "type": "commonjs",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "lib",
+    "static",
+    "types/index.d.ts"
+  ],
+  "scripts": {
+    "prepare": "node scripts/prepare.js",
+    "prepublishOnly": "npm run prepare",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "unit": "borp --coverage --check-coverage --lines 100 --functions 100 --statements 100 --branches 100 --reporter spec 'test/**/*.test.js'",
+    "typescript": "tstyche",
+    "test": "npm run prepare && npm run lint && npm run unit && npm run typescript",
+    "test:e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaelkaron/mercurius-graphiql.git"
+  },
+  "keywords": [
+    "fastify",
+    "mercurius",
+    "graphql",
+    "graphiql",
+    "ide",
+    "offline"
+  ],
+  "author": "Mikael Karon <mikael@karon.se>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikaelkaron/mercurius-graphiql/issues"
+  },
+  "homepage": "https://github.com/mikaelkaron/mercurius-graphiql#readme",
+  "dependencies": {
+    "@fastify/static": "^10.1.0",
+    "fastify-plugin": "^6.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.0.0",
+    "borp": "^1.0.0",
+    "eslint": "^9.9.1",
+    "fastify": "^5.12.1",
+    "graphiql": "3.8.3",
+    "graphql": "^16.8.0",
+    "mercurius": "^16.12.0",
+    "neostandard": "^0.12.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tstyche": "^7.0.0",
+    "typescript": "~6.0.2"
+  },
+  "engines": {
+    "node": "^20.9.0 || >=22.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
